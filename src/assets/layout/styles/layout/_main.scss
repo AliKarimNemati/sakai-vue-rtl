@@ -18,6 +18,53 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body[dir=rtl] {
+    .p-paginator-bottom {
+        direction: ltr;
+    }
+
+    .p-inputwrapper,
+    .p-inputgroup,
+    .p-buttonset,
+    .p-splitbutton {
+        flex-direction: row-reverse;
+    }
+
+    .p-buttonset .p-button:first-of-type {
+        border-radius: 6px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .p-buttonset .p-button:last-of-type {
+        border-radius: 6px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    td[role="cell"] {
+        text-align: start;
+    }
+
+    .p-dataview-header .grid.grid-nogutter {
+        flex-direction: row-reverse;
+    }
+
+    .p-breadcrumb ol {
+        flex-direction: row-reverse;
+    }
+
+    .mr-2 {
+        margin-right: 0 !important;
+        margin-left: 0.5rem !important;
+    }
+
+    .ml-4 {
+        margin-left: 0 !important;
+        margin-right: 1.5rem !important;
+    }
+}
+
 a {
     text-decoration: none;
 }

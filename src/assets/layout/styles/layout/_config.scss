@@ -32,6 +32,28 @@
     }
 }
 
+.layout-config-button-rtl{
+    left: 0;
+    right: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.p-sidebar-left{
+    direction: ltr;
+    .layout-config-sidebar {
+        &.p-sidebar {
+            .p-sidebar-content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                direction: rtl;
+            }
+        }
+    }
+}
+
 .layout-config-sidebar {
     &.p-sidebar {
         .p-sidebar-content {

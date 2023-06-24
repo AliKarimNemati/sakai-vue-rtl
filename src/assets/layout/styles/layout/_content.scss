@@ -7,6 +7,11 @@
     transition: margin-left $transitionDuration;
 }
 
+.layout-main-container-rtl{
+    padding: 7rem 4rem 2rem 2rem;
+
+}
+
 .layout-main {
     flex: 1 1 auto;
 }

@@ -7,7 +7,8 @@ const layoutConfig = reactive({
     menuMode: 'static',
     theme: 'lara-light-indigo',
     scale: 14,
-    activeMenuItem: null
+    activeMenuItem: null,
+    rtl: false,
 });
 
 const layoutState = reactive({
@@ -49,5 +50,22 @@ export function useLayout() {
 
     const isDarkTheme = computed(() => layoutConfig.darkTheme);
 
-    return { layoutConfig: toRefs(layoutConfig), layoutState: toRefs(layoutState), changeThemeSettings, setScale, onMenuToggle, isSidebarActive, isDarkTheme, setActiveMenuItem };
+    const changeMarginRTl = () => {
+        const elements = document.querySelectorAll('svg, i, .mr-3, .field, button, input, .ml-4, span, .p-checkbox.p-treetable-checkbox');
+
+        elements.forEach((element) => {
+            const marginRight = window.getComputedStyle(element).getPropertyValue('margin-right');
+            const marginLeft = window.getComputedStyle(element).getPropertyValue('margin-left');
+
+            if (marginRight) {
+                element.style.marginLeft = marginRight;
+                element.style.marginRight = 0;
+            } else if (marginLeft) {
+                element.style.marginRight = marginLeft;
+                element.style.marginLeft = 0;
+            }
+        });
+    }
+
+    return { layoutConfig: toRefs(layoutConfig), layoutState: toRefs(layoutState), changeThemeSettings, setScale, onMenuToggle, isSidebarActive, isDarkTheme, setActiveMenuItem, changeMarginRTl };
 }
